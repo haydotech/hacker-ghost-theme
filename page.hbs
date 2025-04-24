@@ -1,44 +1,29 @@
 {{!< default}}
 
 <article class="page">
-    {{#if @page.show_title_and_feature_image}}
-        <header class="page-header">
-            {{#if @page.feature_image}}
-                <figure class="page-feature-image">
-                    <img src="{{img_url @page.feature_image size="xl"}}" alt="{{@page.title}}">
-                </figure>
-            {{/if}}
-            <h1 class="page-title">{{@page.title}}</h1>
-            {{#if @page.custom_excerpt}}
-                <p class="page-excerpt">{{@page.custom_excerpt}}</p>
-            {{/if}}
-        </header>
-    {{/if}}
+    {{! Use standard Ghost page properties instead of beta @page features }}
+    <header class="page-header">
+        {{#if feature_image}}
+            <figure class="page-feature-image">
+                <img src="{{img_url feature_image size="xl"}}" alt="{{title}}">
+            </figure>
+        {{/if}}
+        <h1 class="page-title">{{title}}</h1>
+        {{#if custom_excerpt}}
+            <p class="page-excerpt">{{custom_excerpt}}</p>
+        {{/if}}
+    </header>
 
     <section class="page-content">
-        {{{@page.html}}}
+        {{content}}
     </section>
 
-    {{! Beta Editor Newsletter Form }}
-    {{#if @page.show_newsletter_form}}
-        <section class="page-newsletter">
-            {{> "newsletter-form"}}
-        </section>
-    {{/if}}
-
     {{! Developer Profile Section (Only on About page) }}
-    {{#match @page.slug "about"}}
+    {{#match slug "about"}}
         {{#if @custom.show_developer_profile}}
             <section class="developer-profile">
-                {{! ... existing profile content ... }}
+                {{! ... profile content ... }}
             </section>
         {{/if}}
     {{/match}}
 </article>
-
-{{! Add publication cover if enabled }}
-{{#if @page.show_publication_cover}}
-    <div class="publication-cover">
-        <img src="{{@site.cover_image}}" alt="{{@site.title}} cover image">
-    </div>
-{{/if}}

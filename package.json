@@ -8,26 +8,15 @@
   },
   "config": {
     "custom": {
+      "show_developer_profile": {
+        "type": "boolean",
+        "default": true,
+        "label": "Show Developer Profile"
+      },
       "header_text": {
         "type": "text",
         "default": "Welcome to My Tech Blog",
-        "label": "Header Text",
-        "placeholder": "Enter homepage heading"
-      },
-      "accent_color": {
-        "type": "color",
-        "default": "#3a7bd5",
-        "label": "Accent Color"
-      },
-      "show_newsletter": {
-        "type": "boolean",
-        "default": true,
-        "label": "Show Newsletter Form"
-      },
-      "github_url": {
-        "type": "text",
-        "default": "https://github.com/yourusername",
-        "label": "GitHub Profile URL"
+        "label": "Header Text"
       }
     }
   },
