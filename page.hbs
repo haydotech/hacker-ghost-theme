@@ -1,39 +1,44 @@
 {{!< default}}
 
 <article class="page">
-    <header class="page-header">
-        <h1 class="page-title">{{title}}</h1>
-        {{#if custom_excerpt}}
-            <p class="page-excerpt">{{custom_excerpt}}</p>
-        {{/if}}
-    </header>
+    {{#if @page.show_title_and_feature_image}}
+        <header class="page-header">
+            {{#if @page.feature_image}}
+                <figure class="page-feature-image">
+                    <img src="{{img_url @page.feature_image size="xl"}}" alt="{{@page.title}}">
+                </figure>
+            {{/if}}
+            <h1 class="page-title">{{@page.title}}</h1>
+            {{#if @page.custom_excerpt}}
+                <p class="page-excerpt">{{@page.custom_excerpt}}</p>
+            {{/if}}
+        </header>
+    {{/if}}
 
     <section class="page-content">
-        {{content}}
+        {{{@page.html}}}
     </section>
 
-    {{! Add GitHub-style profile for About pages }}
-    {{#match slug "about"}}
-        <section class="developer-profile">
-            <h2>🛠️ Tech Stack</h2>
-            <div class="tech-grid">
-                <div class="tech-item">
-                    <h3>Languages</h3>
-                    <ul>
-                        <li>JavaScript</li>
-                        <li>Python</li>
-                        <li>Go</li>
-                    </ul>
-                </div>
-                <div class="tech-item">
-                    <h3>Tools</h3>
-                    <ul>
-                        <li>Docker</li>
-                        <li>Kubernetes</li>
-                        <li>Git</li>
-                    </ul>
-                </div>
-            </div>
+    {{! Beta Editor Newsletter Form }}
+    {{#if @page.show_newsletter_form}}
+        <section class="page-newsletter">
+            {{> "newsletter-form"}}
         </section>
+    {{/if}}
+
+    {{! Developer Profile Section (Only on About page) }}
+    {{#match @page.slug "about"}}
+        {{#if @custom.show_developer_profile}}
+            <section class="developer-profile">
+                {{! ... existing profile content ... }}
+            </section>
+        {{/if}}
     {{/match}}
 </article>
+
+{{! Add publication cover if enabled }}
+{{#if @page.show_publication_cover}}
+    <div class="publication-cover">
+        <img src="{{@site.cover_image}}" alt="{{@site.title}} cover image">
+    </div>
+{{/if}}

@@ -50,3 +50,27 @@ img.kg-width-full {
 .kg-gallery-image {
     flex: 1;
 }
+
+/* Add to assets/css/style.css */
+.page-feature-image {
+    margin: 0 auto 2rem;
+    max-width: 100%;
+}
+
+.page-feature-image img {
+    border-radius: 8px;
+    max-height: 500px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.publication-cover {
+    position: relative;
+    margin-top: 3rem;
+}
+
+.publication-cover img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
