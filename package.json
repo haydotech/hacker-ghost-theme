@@ -1,24 +1,39 @@
 {
-    "name": "hacker-ghost-theme",
-    "version": "1.0.0",
-    "description": "A minimal Ghost theme for developers with dark mode and code highlighting",
-    "engines": {
-      "ghost": ">=5.0.0",
-      "ghost-api": "v5"
-    },
-    "author": {
-      "name": "haydotech",
-      "email": "haydotech@gmail.com",
-      "url": "https://readabilitycounts.com"
-    },
-    "config": {
-      "posts_per_page": 10
-    },
-    "keywords": [
-      "ghost-theme",
-      "developer",
-      "dark-mode",
-      "prismjs"
-    ],
-    "license": "MIT"
-  }
+  "name": "hacker-ghost-theme",
+  "version": "1.0.0",
+  "description": "A minimal Ghost theme for developers",
+  "engines": {
+    "ghost": ">=5.0.0",
+    "ghost-api": "v5"
+  },
+  "config": {
+    "custom": {
+      "header_text": {
+        "type": "text",
+        "default": "Welcome to My Tech Blog",
+        "label": "Header Text",
+        "placeholder": "Enter homepage heading"
+      },
+      "accent_color": {
+        "type": "color",
+        "default": "#3a7bd5",
+        "label": "Accent Color"
+      },
+      "show_newsletter": {
+        "type": "boolean",
+        "default": true,
+        "label": "Show Newsletter Form"
+      },
+      "github_url": {
+        "type": "text",
+        "default": "https://github.com/yourusername",
+        "label": "GitHub Profile URL"
+      }
+    }
+  },
+  "author": {
+    "name": "Your Name",
+    "email": "your@email.com"
+  },
+  "license": "MIT"
+}
