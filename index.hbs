@@ -1,0 +1,44 @@
+{{!< default}}
+
+<div class="container">
+    {{#if @custom.header_text}}
+        <header class="home-header">
+            <h1>{{@custom.header_text}}</h1>
+            {{#if @site.description}}
+                <p class="terminal-style">{{@site.description}}</p>
+            {{/if}}
+        </header>
+    {{/if}}
+
+    {{! Featured Posts Section }}
+    {{#get "posts" filter="featured:true" limit="3" include="tags"}}
+        {{#if posts}}
+            <section class="featured-posts">
+                <h2 class="section-title">⭐ Featured Articles</h2>
+                <div class="post-feed">
+                    {{#foreach posts}}
+                        {{> "post-card"}}
+                    {{/foreach}}
+                </div>
+            </section>
+        {{/if}}
+    {{/get}}
+
+    {{! Recent Posts }}
+    <section class="all-posts">
+        <h2 class="section-title">📝 Latest Posts</h2>
+        <div class="post-feed">
+            {{#foreach posts}}
+                {{> "post-card"}}
+            {{/foreach}}
+        </div>
+    </section>
+
+    {{! Pagination }}
+    {{pagination}}
+</div>
+
+{{! Keyboard Shortcut Helper }}
+<div class="keyboard-hint">
+    <kbd>J</kbd>/<kbd>K</kbd> to navigate • <kbd>D</kbd> Toggle Dark Mode
+</div>

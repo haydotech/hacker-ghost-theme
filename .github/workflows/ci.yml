@@ -1,0 +1,12 @@
+name: Theme Validation
+on: [push]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Validate Theme
+        run: |
+          npm install -g gscan
+          gscan ./ --verbose

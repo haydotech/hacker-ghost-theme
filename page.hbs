@@ -1,0 +1,39 @@
+{{!< default}}
+
+<article class="page">
+    <header class="page-header">
+        <h1 class="page-title">{{title}}</h1>
+        {{#if custom_excerpt}}
+            <p class="page-excerpt">{{custom_excerpt}}</p>
+        {{/if}}
+    </header>
+
+    <section class="page-content">
+        {{content}}
+    </section>
+
+    {{! Add GitHub-style profile for About pages }}
+    {{#match slug "about"}}
+        <section class="developer-profile">
+            <h2>🛠️ Tech Stack</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>JavaScript</li>
+                        <li>Python</li>
+                        <li>Go</li>
+                    </ul>
+                </div>
+                <div class="tech-item">
+                    <h3>Tools</h3>
+                    <ul>
+                        <li>Docker</li>
+                        <li>Kubernetes</li>
+                        <li>Git</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    {{/match}}
+</article>

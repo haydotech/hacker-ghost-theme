@@ -1,0 +1,58 @@
+{{!< default}}
+
+<article class="post {{post_class}}">
+    <header class="post-header">
+        <h1 class="post-title">{{title}}</h1>
+        <div class="post-meta">
+            <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
+            <span class="reading-time">{{reading_time}} • ⌨️ <kbd>J</kbd>/<kbd>K</kbd> to navigate</span>
+        </div>
+    </header>
+
+    {{#if feature_image}}
+    <figure class="post-image">
+        <img src="{{img_url feature_image}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}">
+    </figure>
+    {{/if}}
+
+    {{! Table of Contents }}
+    {{#if toc}}
+        <aside class="toc">
+            <h3>📋 Table of Contents</h3>
+            {{toc}}
+        </aside>
+    {{/if}}
+
+    <section class="post-content">
+        {{content}}
+    </section>
+
+    {{! Previous/Next Post Navigation }}
+    <div class="post-navigation">
+        {{#prev_post}}
+            <div class="post-nav-prev">
+                ← <a href="{{url}}">{{title}}</a>
+            </div>
+        {{/prev_post}}
+        {{#next_post}}
+            <div class="post-nav-next">
+                <a href="{{url}}">{{title}}</a> →
+            </div>
+        {{/next_post}}
+    </div>
+
+    {{! Code Copy Script }}
+    <script>
+        document.querySelectorAll('pre code').forEach((block) => {
+            const copyBtn = document.createElement('button');
+            copyBtn.className = 'copy-code-btn';
+            copyBtn.textContent = '📋 Copy';
+            copyBtn.onclick = () => {
+                navigator.clipboard.writeText(block.textContent);
+                copyBtn.textContent = '✅ Copied!';
+                setTimeout(() => copyBtn.textContent = '📋 Copy', 2000);
+            };
+            block.parentNode.insertBefore(copyBtn, block);
+        });
+    </script>
+</article>

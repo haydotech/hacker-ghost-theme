@@ -1,0 +1,7 @@
+# Ghost-specific
+/content/
+/core/
+/node_modules/
+/.tmp/
+*.log
+.DS_Store

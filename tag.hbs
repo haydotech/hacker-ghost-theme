@@ -1,0 +1,38 @@
+{{!< default}}
+
+<div class="container">
+    <header class="tag-header">
+        <h1 class="tag-title">#{{tag.name}}</h1>
+        {{#if tag.description}}
+            <p class="tag-description">{{tag.description}}</p>
+        {{/if}}
+        <div class="tag-stats">
+            <span>{{plural pagination.total empty='No posts' singular='% post' plural='% posts'}}</span>
+            {{#if tag.feature_image}}
+                <img class="tag-image" src="{{tag.feature_image}}" alt="{{tag.name}}">
+            {{/if}}
+        </div>
+    </header>
+
+    <div class="post-feed">
+        {{#foreach posts}}
+            {{> "post-card"}}
+        {{/foreach}}
+    </div>
+
+    {{pagination}}
+</div>
+
+{{! Add related tags }}
+{{#get "tags" limit="5" filter="id:-{{tag.id}}+visibility:public" include="count.posts" order="count.posts desc"}}
+    {{#if tags}}
+        <aside class="related-tags">
+            <h3>🔍 Related Topics</h3>
+            <div class="tag-cloud">
+                {{#foreach tags}}
+                    <a href="{{url}}" class="tag-{{slug}}">{{name}} ({{count.posts}})</a>
+                {{/foreach}}
+            </div>
+        </aside>
+    {{/if}}
+{{/get}}

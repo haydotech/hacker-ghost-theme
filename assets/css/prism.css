@@ -1,0 +1,19 @@
+/**
+ * One Dark theme for Prism.js
+ * Based on Atom's One Dark theme
+ */
+ code[class*="language-"],
+ pre[class*="language-"] {
+     font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+     font-size: 0.9em;
+     text-align: left;
+     white-space: pre;
+     word-spacing: normal;
+     word-break: normal;
+     word-wrap: normal;
+     line-height: 1.6;
+     tab-size: 4;
+     hyphens: none;
+ }
+ 
+ /* ... (full One Dark Pro CSS from https://unpkg.com/prism-theme-one-dark) ... */
