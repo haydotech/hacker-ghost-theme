@@ -1,41 +1,52 @@
-/* Homepage */
-.home-header {
-    text-align: center;
-    margin: 4rem 0;
+/* Add to assets/css/style.css */
+/* Koenig Editor Required Styles */
+.kg-width-wide {
+    width: 85vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
-.terminal-style {
-    font-family: var(--code-font);
-    color: var(--secondary-color);
+.kg-width-full {
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
-/* Tag Archive */
-.tag-header {
-    text-align: center;
-    margin-bottom: 3rem;
+.kg-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.tag-image {
-    max-height: 150px;
-    border-radius: 8px;
-    margin-top: 1rem;
+/* Optional but recommended for other Koenig elements */
+.kg-gallery-container,
+.kg-bookmark-card,
+.kg-toggle-card {
+    width: 100%;
+    margin: 2rem 0;
 }
 
-.related-tags {
-    margin: 3rem 0;
-    text-align: center;
+.kg-image {
+    margin: 1.5rem 0;
+    border-radius: 4px;
 }
 
-/* Static Pages */
-.developer-profile {
-    background: rgba(0,0,0,0.03);
-    padding: 2rem;
-    border-radius: 8px;
-    margin-top: 3rem;
+/* For better image handling */
+img.kg-width-wide {
+    max-width: 85vw;
 }
 
-.tech-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+img.kg-width-full {
+    max-width: 100vw;
+}
+
+/* Gallery styling */
+.kg-gallery-row {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.kg-gallery-image {
+    flex: 1;
 }
