@@ -1,40 +1,21 @@
 {{!< default}}
 
 <article class="page">
-    {{! Beta Editor Compatibility }}
-    {{#if @page.show_title_and_feature_image}}
-        <header class="page-header">
-            {{#if @page.feature_image}}
-                <figure class="page-feature-image">
-                    <img src="{{img_url @page.feature_image size="xl"}}" alt="{{@page.title}}">
-                </figure>
-            {{/if}}
-            <h1 class="page-title">{{@page.title}}</h1>
-            {{#if @page.custom_excerpt}}
-                <p class="page-excerpt">{{@page.custom_excerpt}}</p>
-            {{/if}}
-        </header>
-    {{else}}
-        {{! Fallback for Non-Beta Pages }}
+    {{! Works with both old and new Ghost versions }}
+    <header class="page-header">
         {{#if feature_image}}
-            <header class="page-header">
-                <figure class="page-feature-image">
-                    <img src="{{img_url feature_image size="xl"}}" alt="{{title}}">
-                </figure>
-                <h1 class="page-title">{{title}}</h1>
-                {{#if custom_excerpt}}
-                    <p class="page-excerpt">{{custom_excerpt}}</p>
-                {{/if}}
-            </header>
+            <figure class="page-feature-image">
+                <img src="{{img_url feature_image size="xl"}}" alt="{{title}}">
+            </figure>
         {{/if}}
-    {{/if}}
+        <h1 class="page-title">{{title}}</h1>
+        {{#if custom_excerpt}}
+            <p class="page-excerpt">{{custom_excerpt}}</p>
+        {{/if}}
+    </header>
 
     <section class="page-content">
-        {{#if @page.html}}
-            {{{@page.html}}}
-        {{else}}
-            {{content}}
-        {{/if}}
+        {{content}}
     </section>
 
     {{! Developer Profile Section }}
